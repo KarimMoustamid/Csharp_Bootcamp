@@ -11,7 +11,7 @@ try
 catch (Exception e)
 {
     Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("An Exception was thrown");
+    Console.WriteLine($"An Exception was thrown: {e.Message}");
 }
 finally
 {
@@ -23,14 +23,5 @@ Console.ReadKey();
 
 int ParseStringToInt(string input)
 {
-    try
-    {
         return int.Parse(input);
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine($"Parsing error: in the {nameof(ParseStringToInt)} method");
-    }
-
-    return 0;
 }
