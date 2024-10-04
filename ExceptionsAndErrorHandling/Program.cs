@@ -1,5 +1,8 @@
-﻿using System.Xml;
+﻿using ExceptionsAndErrorHandling;
 Console.WriteLine("Enter a number");
+
+#region SandBox1
+
 string input = Console.ReadLine();
 
 try
@@ -33,9 +36,33 @@ finally
     Console.WriteLine("End of number processing.");
 }
 
+#endregion
+
+#region Sandbox2
+var firstNumber = GetFirstElement(new int[0]);
+
+#endregion
+
+#region Sandbox3
+
+var person = new Person("", -100);
+
+#endregion
+
 Console.ReadKey();
 
 int ParseStringToInt(string input)
 {
         return int.Parse(input);
+}
+
+int GetFirstElement(IEnumerable<int> numbers)
+{
+    // return numbers.First();
+    foreach (var number in numbers)
+    {
+        return number;
+    }
+
+    throw new Exception("The Collection cannot be empty.");
 }
