@@ -7,6 +7,11 @@ namespace ExceptionsAndErrorHandling
 
         public Person(string name, int yearOfBirth)
         {
+            if (name is null)
+            {
+                throw new ArgumentNullException(nameof(name));
+            }
+
             if (name == string.Empty)
             {
                 throw new ArgumentException("Name cannot be empty",
@@ -15,7 +20,7 @@ namespace ExceptionsAndErrorHandling
 
             if (yearOfBirth < 1900 || yearOfBirth > DateTime.Now.Year)
             {
-                throw new AggregateException("Invalid year of birth");
+                throw new ArgumentOutOfRangeException("Invalid year of birth");
             }
         }
     }
